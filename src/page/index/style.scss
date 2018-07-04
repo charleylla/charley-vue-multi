@@ -1,0 +1,15 @@
+section{
+  background-color:red;
+  transition:all ease .5s;
+  &:hover{
+    background: orange;
+    color:#fff;
+  }
+
+  .box{
+    width:20vw;
+    height:20vh;
+    border:1px solid red;
+    background-color:#fff;
+  }
+}

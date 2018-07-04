@@ -25,7 +25,7 @@ function resolveAlias(){
 // Handle Entry and Output of Webpack
 function resolveEntryAndOutput(env){
   entryFiles.forEach(dir => {
-    entry[dir] = resolve(`${entryDir}/${dir}/boot`)
+    entry[dir] = resolve(`${entryDir}/${dir}`)
     if(env === "prod"){
       output.filename = "js/[name].bundle.js";
     }else{

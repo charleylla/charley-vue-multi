@@ -1,5 +1,6 @@
 const CleanWebpackPlugin = require("clean-webpack-plugin")
 const VueLoaderPlugin = require("vue-loader/lib/plugin")
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const { initConfig,resolve } = require("./bundle")
 const { initLoader } = require("./loaders")
@@ -19,7 +20,11 @@ const config = {
       verbose: true, //开启在控制台输出信息
       dry: false,
     }),
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new CopyWebpackPlugin([{
+			from: resolve("template/favico.ico"),
+			to: resolve("dist")
+		}]),
   ],
 }
 

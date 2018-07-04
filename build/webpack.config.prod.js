@@ -2,7 +2,7 @@ const webpackMerge = require("webpack-merge");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-// const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 const { resolve } = require("./bundle")
 const { externals } = require("./externals")
@@ -13,6 +13,15 @@ module.exports = function(env){
   return webpackMerge(baseConfig,{
     mode:"production",
     optimization:{
+      splitChunks: {
+        cacheGroups: {
+          commons: {
+            test: /[\\/]node_modules[\\/]/,
+            name: "vendor",
+            chunks: "all"
+          }
+        }
+      },
       minimizer: [
         new UglifyJsPlugin({
           uglifyOptions: {
@@ -35,7 +44,7 @@ module.exports = function(env){
       new MiniCssExtractPlugin({
         filename: "css/[name].[hash].css",
       }),
-      // new BundleAnalyzerPlugin()
+      new BundleAnalyzerPlugin()
     ],
   });
 }

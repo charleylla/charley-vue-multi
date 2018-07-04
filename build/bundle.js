@@ -26,7 +26,7 @@ function resolveAlias(){
 function resolveEntryAndOutput(env){
   entryFiles.forEach(dir => {
     entry[dir] = resolve(`${entryDir}/${dir}`)
-    if(env === "prod"){
+    if(env === "dev"){
       output.filename = "js/[name].bundle.js";
     }else{
       output.filename = "js/[name].bundle.[hash].js";
@@ -41,7 +41,7 @@ function combineHTMLWithTemplate(){
     const htmlPlugin = new HTMLWebpackPlugin({
       filename:`${dir}.html`,
       template:templatePath,
-      chunks:[dir,"common"]
+      chunks:[dir,"vendor"]
     })
     htmlPlugins.push(htmlPlugin)
   })

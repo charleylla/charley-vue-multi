@@ -24,7 +24,7 @@ const config = {
     new CopyWebpackPlugin([{
 			from: resolve("template/favico.ico"),
 			to: resolve("dist")
-		}]),
+    }]),
   ],
 }
 

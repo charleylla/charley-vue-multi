@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=dev webpack-dev-server --open",
-    "build": "cross-env NODE_ENV=prod webpack"
+    "dev": "cross-env ENVIROMENT=dev webpack-dev-server --open",
+    "build": "cross-env ENVIROMENT=prod webpack",
+    "build:report": "cross-env OPTION=report npm run build"
   },
   "keywords": [],
   "author": "",

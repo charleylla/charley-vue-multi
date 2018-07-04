@@ -8,8 +8,18 @@ const { resolve } = require("./bundle")
 const { externals } = require("./externals")
 const webpackBaseFn = require("./webpack.config.base");
 
-module.exports = function(env){
+module.exports = function(env,{ option }){
   const baseConfig = webpackBaseFn(env)
+  const reportOn = option === "report"
+  const plugins = [
+    new MiniCssExtractPlugin({
+      filename: "css/[name].[hash].css",
+    }),
+  ];
+  if(reportOn){
+    plugins.push(new BundleAnalyzerPlugin())
+  }
+
   return webpackMerge(baseConfig,{
     mode:"production",
     optimization:{
@@ -40,11 +50,6 @@ module.exports = function(env){
       ]
     },
     externals,
-    plugins:[
-      new MiniCssExtractPlugin({
-        filename: "css/[name].[hash].css",
-      }),
-      new BundleAnalyzerPlugin()
-    ],
+    plugins
   });
 }

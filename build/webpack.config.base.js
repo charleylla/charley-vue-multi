@@ -40,7 +40,6 @@ module.exports = function(env){
   config.entry = entry;
   config.output = output;
   config.resolve.alias = alias;
-  alias["vue$"] = "vue/dist/vue.esm.js"
   config.module.rules.push(...loaders);
   config.plugins.push(...htmlPlugins)
 

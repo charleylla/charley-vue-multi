@@ -11,10 +11,7 @@ module.exports = {
   ],
   "parserOptions": {
     "ecmaVersion": 8,
-    "ecmaFeatures": {
-      "experimentalObjectRestSpread": true,
-    },
-    "sourceType": "module",
+    "sourceType": "module"
   },
   "rules": {
     "comma-dangle": ["warn", "always-multiline"],

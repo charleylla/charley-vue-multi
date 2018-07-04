@@ -1,4 +1,4 @@
-const env = process.env.ENVIROMENT.replace(/(\s*$)|(^\s*)/ig,"");
-const option = process.env.OPTION.replace(/(\s*$)|(^\s*)/ig,"");
+const env = process.env.ENVIROMENT.trim();
+const option = process.env.OPTION ? process.env.OPTION.trim() : "";
 const webpackConfigFn = require(`./build/webpack.config.${env}`);
 module.exports = webpackConfigFn(env,{ option })

@@ -1,1 +1,1 @@
-export const testUrl = "https://www.baidu.com";
+export const testUrl = "/api/user";

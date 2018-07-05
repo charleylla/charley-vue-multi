@@ -49,6 +49,15 @@ module.exports = function(env,{ option }){
         })
       ]
     },
+    stats:{
+      chunkGroups: false,
+      chunkModules: false,
+      chunkOrigins: false,
+      modules: false,
+      moduleTrace: false,
+      source: false,
+      children: false,
+    },
     externals,
     plugins
   });

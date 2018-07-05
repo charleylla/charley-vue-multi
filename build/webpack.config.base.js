@@ -4,7 +4,6 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const { initConfig,resolve } = require("./bundle")
 const { initLoader } = require("./loaders")
-
 const config = {
   devtool: "cheap-module-source-map",
   // 加载器

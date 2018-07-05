@@ -1,5 +1,6 @@
 import axios from "axios";
-axios.defaults.baseURL = window["baseUrl"];
+
+axios.defaults.baseURL = window.env === "prod" ? window.prodBaseUrl : window.devBaseUrl;
 axios.defaults.timeout = 120000;
 
 export const getFetch = async (url,params = {}) => {

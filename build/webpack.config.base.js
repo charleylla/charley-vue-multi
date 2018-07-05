@@ -22,8 +22,9 @@ const config = {
     }),
     new VueLoaderPlugin(),
     new CopyWebpackPlugin([{
-			from: resolve("template/favico.ico"),
-			to: resolve("dist")
+			from: resolve("template"),
+      to: resolve("dist"),
+      ignore:["*.html"]
     }]),
   ],
 }

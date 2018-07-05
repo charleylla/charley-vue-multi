@@ -13,7 +13,19 @@ module.exports = function(env){
         errors:true,
         warnings:true
       },
-      hot:true
+      hot:true,
+      stats:{
+        assets: false,
+        chunks: false,
+        chunkGroups: false,
+        chunkModules: false,
+        chunkOrigins: false,
+        modules: false,
+        moduleTrace: false,
+        source: false,
+        builtAt: false,
+        children: false,
+      }
     },
     plugins:[
       //热更新

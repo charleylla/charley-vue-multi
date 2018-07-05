@@ -2,9 +2,5 @@ import Vue from "vue";
 import Tpl from "./template.vue";
 
 new Vue({
-  el:"#app",
-  template:"<Tpl/>",
-  components:{
-    Tpl,
-  },
-});
+  render:h => h(Tpl),
+}).$mount("#app");

@@ -7,20 +7,6 @@ module.exports = function(env){
   const baseConfig = webpackBaseFn(env)
   return webpackMerge(baseConfig,{
     mode:"development",
-    module:{
-      rules:[
-        {
-          test: /\.(js|vue)$/,
-          enforce: "pre",
-          exclude: /node_modules/,
-          loader: "eslint-loader",
-          options: {
-            fix:true,
-            emitWarning:true,
-          }
-        },
-      ]
-    },
     devServer:{
       contentBase:resolve("dist"),
       overlay:{

@@ -47,7 +47,19 @@ const fontLoader = {
   use: ["url-loader"]
 }
 
+const eslintLoader = {
+  test: /\.(js|vue)$/,
+  enforce: "pre",
+  exclude: /node_modules/,
+  loader: "eslint-loader",
+  options: {
+    fix:true,
+    emitWarning:true,
+  }
+}
+
 exports.initLoader = function(env){
+  const loaders = [];
   if(env !== "dev"){
     cssLoader.use = [
       MiniCssExtractPlugin.loader,
@@ -61,13 +73,18 @@ exports.initLoader = function(env){
       "sass-loader",
       "postcss-loader"
     ]
+  }else{
+    loaders.push(eslintLoader)
   }
-  return [
+
+  loaders.push(
     vueLoader,
     cssLoader,
     sassLoader,
     jsLoader,
     imgLoader,
     fontLoader
-  ]
+  );
+
+  return loaders;
 }

@@ -1,5 +1,5 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
+const { resolve } = require("./bundle")
 const vueLoader = {
   test: /\.vue$/,
   use: "vue-loader"
@@ -22,7 +22,13 @@ const sassLoader = {
     "vue-style-loader",
     "css-loader",
     "sass-loader",
-    "postcss-loader"
+    "postcss-loader",
+    {
+      loader: 'sass-resources-loader',
+      options: {
+        resources: resolve("src/assets/style/main.scss"),
+      },
+    }
   ]
 }
 
@@ -35,16 +41,22 @@ const jsLoader = {
 const imgLoader = {
   test: /\.(png|svg|jpg|gif)$/,
   use: {
-    loader: "url-loader",
+    loader: "file-loader",
     options: {
       name: "[name].[ext]",
+      outputPath:"img"
     }
   }
 }
 
 const fontLoader = {
   test: /\.(woff|woff2|eot|ttf|otf)$/,
-  use: ["url-loader"]
+  use: {
+    loader: "file-loader",
+    options: {
+      outputPath:"font"
+    }
+  }
 }
 
 const eslintLoader = {
@@ -71,7 +83,13 @@ exports.initLoader = function(env){
       MiniCssExtractPlugin.loader,
       "css-loader",
       "sass-loader",
-      "postcss-loader"
+      "postcss-loader",
+      {
+        loader: 'sass-resources-loader',
+        options: {
+          resources: resolve("src/assets/style/main.scss"),
+        },
+      }
     ]
   }else{
     loaders.push(eslintLoader)

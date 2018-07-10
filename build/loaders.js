@@ -24,7 +24,7 @@ const sassLoader = {
     "sass-loader",
     "postcss-loader",
     {
-      loader: 'sass-resources-loader',
+      loader: "sass-resources-loader",
       options: {
         resources: resolve("src/assets/style/main.scss"),
       },
@@ -85,7 +85,7 @@ exports.initLoader = function(env){
       "sass-loader",
       "postcss-loader",
       {
-        loader: 'sass-resources-loader',
+        loader: "sass-resources-loader",
         options: {
           resources: resolve("src/assets/style/main.scss"),
         },

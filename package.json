@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env ENVIROMENT=dev webpack-dev-server --open",
+    "dev": "cross-env ENVIROMENT=dev webpack-dev-server",
     "build": "cross-env ENVIROMENT=prod webpack",
     "build:report": "cross-env OPTION=report npm run build",
     "serve": "http-server ./dist -o"

@@ -52,6 +52,9 @@ npm run serve
 │  │  ├─image
 │  │  ├─lib
 │  │  └─style
+│  │          atom.scss
+│  │          constant.scss
+│  │          func.scss
 │  │          main.scss
 │  │
 │  ├─component                  —— 组件

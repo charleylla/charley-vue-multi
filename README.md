@@ -90,3 +90,8 @@ npm run serve
         favicon.ico
         index.html
 ```
+
+## 文章地址
+[基于 Webpack4 + Vue 的多页应用解决方案（一）](https://www.jianshu.com/p/c52df2689d34)
+
+[基于 Webpack4 + Vue 的多页应用解决方案（二）](https://www.jianshu.com/p/0c888c895661)

@@ -7,7 +7,6 @@ const vueLoader = {
 
 const cssLoader = {
   test: /\.css$/,
-  exclude: /node_modules/,
   use: [
     "vue-style-loader",
     "css-loader",
@@ -74,13 +73,23 @@ exports.initLoader = function(env){
   const loaders = [];
   if(env !== "dev"){
     cssLoader.use = [
-      MiniCssExtractPlugin.loader,
+      {
+        loader:MiniCssExtractPlugin.loader,
+        options: {
+          publicPath: "../../"
+        }
+      },
       "css-loader",
       "postcss-loader"
     ];
 
     sassLoader.use = [
-      MiniCssExtractPlugin.loader,
+      {
+        loader:MiniCssExtractPlugin.loader,
+        options: {
+          publicPath: "../"
+        }
+      },
       "css-loader",
       "sass-loader",
       "postcss-loader",
